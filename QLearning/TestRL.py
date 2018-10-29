@@ -17,7 +17,7 @@ print (policy)
 # Test Q-learning with maze MDP
 maze_mdp = MDPMaze()
 rl_instance = RL(maze_mdp,np.random.normal)
-[Q, policy, episode_rewards] = rl_instance.qLearning(s0=0, initialQ=np.zeros([mdp.nActions, mdp.nStates]), nEpisodes=200,
+[Q, policy, episode_rewards] = rl_instance.qLearning(s0=0, initialQ=np.zeros([maze_mdp.nActions, maze_mdp.nStates]), nEpisodes=200,
                                                    nSteps=100, epsilon=0.3)
 print ("\nQ-learning results")
 print (Q)
