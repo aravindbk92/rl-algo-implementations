@@ -1,6 +1,6 @@
 import numpy as np
 
-class RL:
+class TD:
     def __init__(self,mdp,sampleReward):
         '''Constructor for the RL class
 
