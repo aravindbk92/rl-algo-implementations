@@ -1,6 +1,7 @@
 import numpy as np
+from lib.MDP import MDPBase
 
-class TD:
+class TD(MDPBase):
     def __init__(self,mdp,sampleReward):
         '''Constructor for the RL class
 
@@ -11,27 +12,7 @@ class TD:
         returns a sample from the distribution.
         '''
 
-        self.mdp = mdp
-        self.sampleReward = sampleReward
-
-    def sampleRewardAndNextState(self,state,action):
-        '''Procedure to sample a reward and the next state
-        reward ~ Pr(r)
-        nextState ~ Pr(s'|s,a)
-
-        Inputs:
-        state -- current state
-        action -- action to be executed
-
-        Outputs: 
-        reward -- sampled reward
-        nextState -- sampled next state
-        '''
-
-        reward = self.sampleReward(self.mdp.R[action,state])
-        cumProb = np.cumsum(self.mdp.T[action,state,:])
-        nextState = np.where(cumProb >= np.random.rand(1))[0][0]
-        return [reward,nextState]
+        super(TD, self).__init__(mdp, sampleReward)
 
     def qLearning(self,s0,initialQ,nEpisodes,nSteps,epsilon=0,temperature=0):
         '''qLearning algorithm.  Epsilon exploration and Boltzmann exploration
