@@ -1,9 +1,11 @@
 import numpy as np
+from lib.MDP import MDP
+from lib.MDP import MDPBase
 
-class DPAlgorithms:
+class DPAlgorithms(MDPBase):
 
     def __init__(self, mdp):
-        self.mdp = mdp
+        super(DPAlgorithms, self).__init__(mdp)
 
     def valueIteration(self,initialV,nIterations=np.inf,tolerance=0.01):
         '''Value iteration procedure

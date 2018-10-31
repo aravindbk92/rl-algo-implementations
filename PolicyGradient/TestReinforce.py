@@ -12,7 +12,7 @@ initial = np.random.rand(mdp.nActions,mdp.nStates)
 
 rl_instance = RLPolicyGradient(mdp,np.random.normal)
 updated_policy_params, episode_rewards = rl_instance.reinforce(s0=0,initialPolicyParams=initial,nEpisodes=1000,nSteps=100)
-print (rl_instance.get_policy(updated_policy_params))
+print (rl_instance.extract_policy(updated_policy_params))
 
 # Test REINFORCE with maze MDP
 print ("\nREINFORCE Maze results")
@@ -21,5 +21,5 @@ initial = np.random.rand(maze_mdp.nActions,maze_mdp.nStates)
 
 rl_instance = RLPolicyGradient(maze_mdp,np.random.normal)
 policy_params, episode_rewards = rl_instance.reinforce(s0=0,initialPolicyParams=initial,nEpisodes=1000,nSteps=100)
-policy = rl_instance.get_policy(policy_params)
+policy = rl_instance.extract_policy(policy_params)
 print (policy)

@@ -1,7 +1,6 @@
 import numpy as np
 from lib.MDP import MDPMaze
 from DP_algorithms import DPAlgorithms
-import matplotlib.pyplot as plt
 
 mdp = MDPMaze()
 dpalgos = DPAlgorithms(mdp)
@@ -36,11 +35,6 @@ for partial_eval_iter in range(1,11):
    print (policy, "\n")
    print ("Number of iterations:", iterId, "\n")
    nIterations_list.append(iterId)
-
-plt.xlabel("Iterations in Partial Policy Evaluation")
-plt.ylabel("Number of iterations to converge")
-plt.plot(nIterations_list)
-plt.savefig("niters_partial_policy_eval.png")
     
     
 
